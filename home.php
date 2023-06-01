@@ -1,3 +1,9 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['fname'])) {
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -76,6 +82,7 @@
 				</div>			
 			</section>
 			<section class="header_text">
+				<h3 class="display-4 ">Welcome, <?=$_SESSION['fname']?></h3>
 				Checkout the best Pizza in town!!! Grab a bite and feel the greatness! 
 				<br/>Always Great never Greasy!
 			</section>
@@ -336,3 +343,8 @@
 		</script>
     </body>
 </html>
+
+<?php }else {
+	header("Location: login.php");
+	exit;
+} ?>
